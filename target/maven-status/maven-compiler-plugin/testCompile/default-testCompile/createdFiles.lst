@@ -1,0 +1,8 @@
+LogoutTest.class
+GoToPersonalAccountTest.class
+RegistrationIncorrectPasswordParameterizedTest.class
+RegistrationTrueTest.class
+EntranceTest.class
+SectionConstructorTest.class
+TransitionToDesignerTest.class
+BaseTest.class

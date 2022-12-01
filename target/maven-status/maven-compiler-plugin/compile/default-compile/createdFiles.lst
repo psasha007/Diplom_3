@@ -1,0 +1,6 @@
+pageobject\PersonalAccountPageObject.class
+pageobject\BasePage.class
+pageobject\EntrancePageObject.class
+constants\Constants.class
+pageobject\SectionConstructorPageObject.class
+pageobject\RegistrationPageObject.class
