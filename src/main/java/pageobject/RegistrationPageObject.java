@@ -29,6 +29,12 @@ public class RegistrationPageObject extends BasePage{
     // Страница Входа - Успешная регистрация  https://stellarburgers.nomoreparties.site/login
     private By textEnter = By.xpath("//*[text() = 'Вход']");
 
+
+    // Конструктор
+    public RegistrationPageObject(WebDriver driver) {
+        super(driver);
+    }
+
     @Step("Ввод значения в поле Имя")
     public RegistrationPageObject sendNameToField(String name){
         waitForElement(inputNameField, Constants.TIME_OUT_IN_SECONDS);
@@ -61,7 +67,7 @@ public class RegistrationPageObject extends BasePage{
     public RegistrationPageObject checkTextIncorrectPassword(String expected){
         waitForElement(textIncorrectPassword, Constants.TIME_OUT_IN_SECONDS);
         WebElement actual = driver.findElement(textIncorrectPassword);
-        Assert.assertEquals("Ошибка, текст не совпадает: ", expected, actual.getText());
+        Assert.assertEquals("Ошибка, ожидаем текст 'Некорректный пароль'", expected, actual.getText());
         return this;
     }
 
@@ -69,7 +75,7 @@ public class RegistrationPageObject extends BasePage{
     public RegistrationPageObject checkTextUserAlreadyExists(String expected){
         waitForElement(textUserAlreadyExists, Constants.TIME_OUT_IN_SECONDS);
         WebElement actual = driver.findElement(textUserAlreadyExists);
-        Assert.assertEquals("Ошибка, текст не совпадает: ", expected, actual.getText());
+        Assert.assertEquals("Ошибка, ожидаем текст 'Такой пользователь уже существует'", expected, actual.getText());
         return this;
     }
 
@@ -77,12 +83,7 @@ public class RegistrationPageObject extends BasePage{
     public RegistrationPageObject checkTextEnter(String expected){
         waitForElement(textEnter, Constants.TIME_OUT_IN_SECONDS);
         WebElement actual = driver.findElement(textEnter);
-        Assert.assertEquals("Ошибка, текст не совпадает: ", expected, actual.getText());
+        Assert.assertEquals("Ошибка, ожидаем текст 'Вход'", expected, actual.getText());
         return this;
-    }
-
-    // Конструктор
-    public RegistrationPageObject(WebDriver driver) {
-        super(driver);
     }
 }

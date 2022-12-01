@@ -1,14 +1,8 @@
 LogoutTest.class
-pageobject\EntrancePageObject.class
-RegistrationIncorrectPasswordParameterizedTest.class
-pageobject\RegistrationPageObject.class
-EntranceTest.class
-pageobject\SectionConstructorPageObject.class
-pageobject\GoToPersonalAccountPageObject.class
 GoToPersonalAccountTest.class
+RegistrationIncorrectPasswordParameterizedTest.class
 RegistrationTrueTest.class
+EntranceTest.class
 SectionConstructorTest.class
-pageobject\BasePage.class
-constants\Constants.class
 TransitionToDesignerTest.class
 BaseTest.class

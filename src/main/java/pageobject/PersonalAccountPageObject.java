@@ -47,11 +47,16 @@ public class PersonalAccountPageObject extends BasePage{
     // Страница Профиля - локатор Stellar Burgers
     private By stellarBurgers = By.xpath("//a[.//*[@id='filter0_f']]");
 
+    // Конструктор
+    public PersonalAccountPageObject(WebDriver driver) {
+        super(driver);
+    }
+
     @Step("Проверка отображения текста Оформить заказ")
     public PersonalAccountPageObject checkTextCreateOrder(String expected){
         waitForElement(buttonCreateOrder, Constants.TIME_OUT_IN_SECONDS);
         WebElement actual = driver.findElement(buttonCreateOrder);
-        Assert.assertEquals("Ошибка, текст не совпадает: ", expected, actual.getText());
+        Assert.assertEquals("Ошибка, ожидаем текст 'Оформить заказ'", expected, actual.getText());
         return this;
     }
 
@@ -104,14 +109,6 @@ public class PersonalAccountPageObject extends BasePage{
         return this;
     }
 
-    @Step("Проверка текста Оформить заказ")
-    public PersonalAccountPageObject checkTextName(String expected){
-        waitForElement(inputTypeName, Constants.TIME_OUT_IN_SECONDS);
-        WebElement actual = driver.findElement(inputTypeName);
-        Assert.assertEquals("Ошибка, текст не совпадает: ", expected, actual.getTagName());
-        return this;
-    }
-
     @Step("Нажатие на кнопку Войти")
     public PersonalAccountPageObject clickButtonEnter(){
         waitForElement(buttonEnter, Constants.TIME_OUT_IN_SECONDS);
@@ -152,10 +149,5 @@ public class PersonalAccountPageObject extends BasePage{
         waitForElement(buttonPersonalArea, Constants.TIME_OUT_IN_SECONDS);
         driver.findElement(buttonPersonalArea).click();
         return this;
-    }
-
-    // Конструктор
-    public PersonalAccountPageObject(WebDriver driver) {
-        super(driver);
     }
 }

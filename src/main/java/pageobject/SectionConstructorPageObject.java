@@ -21,6 +21,12 @@ public class SectionConstructorPageObject extends BasePage {
     // Страница Входа - локатор кнопки ингредиентов
     private By buttonAny = By.cssSelector(".tab_tab_type_current__2BEPc");
 
+
+    // Конструктор
+    public SectionConstructorPageObject(WebDriver driver) {
+        super(driver);
+    }
+
     @Step("Нажатие на кнопку Булки")
     public SectionConstructorPageObject clickButtonBun(){
         waitForElement(buttonBun, Constants.TIME_OUT_IN_SECONDS);
@@ -46,12 +52,7 @@ public class SectionConstructorPageObject extends BasePage {
     public SectionConstructorPageObject checkTextCurrentButton(String expected){
         waitForElement(buttonAny, Constants.TIME_OUT_IN_SECONDS);
         WebElement actual = driver.findElement(buttonAny);
-        Assert.assertEquals("Ошибка, текст не совпадает: ", expected, actual.getText());
+        Assert.assertEquals("Ошибка, ожидаем текст " + expected, expected, actual.getText());
         return this;
-    }
-
-    // Конструктор
-    public SectionConstructorPageObject(WebDriver driver) {
-        super(driver);
     }
 }

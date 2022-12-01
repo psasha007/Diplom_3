@@ -2,10 +2,10 @@ package pageobject;
 
 import constants.Constants;
 import io.qameta.allure.Step;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.junit.Assert;
 
 public class EntrancePageObject extends BasePage{
     // Страница Входа - локатор поле ввода email
@@ -34,6 +34,11 @@ public class EntrancePageObject extends BasePage{
 
     // Страница Восстановление пароля - локатор linkText "Восстановить пароль"
     private By linkTextRestorePassword = By.linkText("Восстановить пароль");
+
+    // Конструктор
+    public EntrancePageObject(WebDriver driver) {
+        super(driver);
+    }
 
     @Step("Нажатие на кнопку Войти в аккаунт")
     public EntrancePageObject clickButtonEnterAccount(){
@@ -95,12 +100,7 @@ public class EntrancePageObject extends BasePage{
     public EntrancePageObject checkTextCreateOrder(String expected){
         waitForElement(buttonCreateOrder, Constants.TIME_OUT_IN_SECONDS);
         WebElement actual = driver.findElement(buttonCreateOrder);
-        Assert.assertEquals("Ошибка, текст не совпадает: ", expected, actual.getText());
+        Assert.assertEquals("Ошибка, ожидаем текст 'Оформить заказ'", expected, actual.getText());
         return this;
-    }
-
-    // Конструктор
-    public EntrancePageObject(WebDriver driver) {
-        super(driver);
     }
 }
